@@ -1,0 +1,22 @@
+Algoritmo CalcularAreaTriangulo
+    // Declaración de variables
+    Definir lado1, lado2, angulo, area como Real
+    // Pedir al usuario los datos del triángulo
+    Escribir "Ingrese el valor del lado 1: "
+    Leer lado1
+    Escribir "Ingrese el valor del lado 2: "
+    Leer lado2
+    Escribir "Ingrese el valor del ángulo en radianes: "
+    Leer angulo
+    // Calcular el área del triángulo
+    area = CalcularAreaTriangulo(lado1, lado2, angulo)
+    // Mostrar el resultado
+    Escribir "El área del triángulo es: " + area
+FinAlgoritmo
+Función CalcularAreaTriangulo(lado1, lado2, angulo)
+    // Declaración de variables locales
+    Definir area como Real
+    // Calcular el área utilizando la ley del seno
+    area = 0.5 * lado1 * lado2 * sen(angulo)
+    Devolver area
+FinFunción
