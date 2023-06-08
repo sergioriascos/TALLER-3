@@ -1,0 +1,51 @@
+Proceso CalcularPrestamoHipotecario
+    Definir capital, interesAnual, cuotaMensual, totalPagado, amortizacion, intereses Como Real
+    Definir plazo Como Entero
+    // Pedir al usuario los datos del préstamo
+    Escribir "Ingrese el capital prestado: "
+    Leer capital
+    Escribir "Ingrese el interés anual: "
+    Leer interesAnual
+    Escribir "Ingrese el plazo en años: "
+    Leer plazo
+    // Calcular la cuota mensual
+    cuotaMensual = CalcularCuotaMensual(capital, interesAnual, plazo)
+    // Calcular el total pagado
+    totalPagado = CalcularTotalPagado(cuotaMensual, plazo)
+    // Calcular la cantidad de amortización
+    amortizacion = CalcularAmortizacion(capital)
+    // Calcular la cantidad de intereses
+    intereses = CalcularIntereses(cuotaMensual, capital)
+    // Mostrar los resultados
+    Escribir "Detalle del préstamo hipotecario:"
+    Escribir "Cuota mensual: ", cuotaMensual
+    Escribir "Total pagado: ", totalPagado
+    Escribir "Cantidad de amortización: ", amortizacion
+    Escribir "Cantidad de intereses: ", intereses
+FinProceso
+Funcion CalcularCuotaMensual(capital Como Real, interesAnual Como Real, plazo Como Entero) Como Real
+    Definir ratio, cuotaMensual Como Real
+    // Calcular el interés mensual
+    ratio = interesAnual / (12 * 100)
+    // Calcular la cuota mensual utilizando la fórmula
+    cuotaMensual = (capital * ratio) / (1 - Potencia(1 + ratio, -plazo))
+    Devolver cuotaMensual
+FinFuncion
+Funcion CalcularTotalPagado(cuotaMensual Como Real, plazo Como Entero) Como Real
+    Definir totalPagado Como Real
+    // Calcular el total pagado multiplicando la cuota mensual por el plazo
+    totalPagado = cuotaMensual * plazo
+    Devolver totalPagado
+FinFuncion
+Funcion CalcularAmortizacion(capital Como Real) Como Real
+    // La cantidad de amortización es igual al capital prestado
+    Devolver capital
+FinFuncion
+Funcion CalcularIntereses(cuotaMensual Como Real, capital Como Real) Como Real
+    Definir intereses Como Real
+    // Calcular los intereses restando la cantidad de amortización de la cuota mensual
+    intereses = cuotaMensual - CalcularAmortizacion(capital)
+    Devolver intereses
+FinFuncion
+// Llamada al proceso principal
+CalcularPrestamoHipotecario()
