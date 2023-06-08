@@ -1,0 +1,18 @@
+Algoritmo CalculoNotaFinal
+    Definir examen1, examen2, examenFinal, practica1, practica2, actividadAdicional, notaFinal como Real
+    Escribir "Ingresa la calificación del primer examen: "
+    Leer examen1
+    Escribir "Ingresa la calificación del segundo examen: "
+    Leer examen2
+    Escribir "Ingresa la calificación del examen final: "
+    Leer examenFinal
+    Escribir "Ingresa la calificación de la primera práctica: "
+    Leer practica1
+    Escribir "Ingresa la calificación de la segunda práctica: "
+    Leer practica2
+    Escribir "Ingresa la calificación de la actividad adicional: "
+    Leer actividadAdicional
+    // Cálculo de la nota final
+    notaFinal <- (examen1 + examen2 + examenFinal + practica1 + practica2 + actividadAdicional) / 6
+    Escribir "La nota final obtenida es: ", Redondear(notaFinal, 2)
+FinAlgoritmo
