@@ -1,0 +1,18 @@
+Algoritmo EvaluacionExpresiones
+    // Declaración de variables
+    Definir a como Entero
+    Definir d como Real
+    // Asignación inicial
+    a = 1
+    d = 1.0
+    // Expresiones
+    a = 46 MOD 9 + 4 * 4 - 2
+    a = 45 + 43 MOD 5 * (23 * 3 MOD 2)
+    a = 45 + 45 * 50 MOD (a - 1)
+    d = 1.5 * 3 + (++d)
+    d = 1.5 * 3 + (d++)
+    a %= 3 / a + 3
+    // Mostrar los resultados
+    Escribir "a = " + a
+    Escribir "d = " + d
+FinAlgoritmo
