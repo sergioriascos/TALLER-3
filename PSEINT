@@ -1,0 +1,8 @@
+Algoritmo CalculoVolumenCono
+    Constante PI <- 3.141592
+    Definir radio, altura, volumen como Real
+    radio <- 14.5
+    altura <- 26.79
+    volumen <- PI * radio * radio * altura / 3
+    Escribir "El volumen del cono es: ", Redondear(volumen, 2)
+FinAlgoritmo
