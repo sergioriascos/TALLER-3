@@ -1,0 +1,211 @@
+#include <stdio.h>
+#include <math.h>
+#define PI 3.141592
+double calcularAreaTriangulo(double lado1, double lado2, double anguloRadianes);
+double calcularCuotaMensual(double capital, double interesAnual, int plazo);
+double calcularTotalPagado(double cuotaMensual, int plazo);
+double calcularAmortizacion(double capital);
+double calcularIntereses(double cuotaMensual, double capital);
+int main() {
+    int opcion;
+    double resultado;
+    printf("Ingrese el número de opción (5-11): ");
+    scanf("%d", &opcion);
+    switch (opcion) {
+        case 1: {
+            double radio, altura, volumen;
+            radio = 14.5;
+            altura = 26.79;
+            volumen = PI * radio * radio * altura / 3;
+            printf("El volumen del cono es: %.2lf\n", volumen);
+            break;
+        }
+        case 2: {
+            double fahrenheit, celsius;
+            printf("Ingresa la temperatura en grados Fahrenheit: ");
+            scanf("%lf", &fahrenheit);
+            celsius = (5.0 / 9.0) * (fahrenheit - 32);
+            printf("La temperatura en grados Celsius es: %.2lf\n", celsius);
+            break;
+        }
+        case 3: {
+            int segundos, horas, minutos, resto;
+            printf("Ingresa el tiempo transcurrido en segundos: ");
+            scanf("%d", &segundos);
+            horas = segundos / 3600;
+            resto = segundos % 3600;
+            minutos = resto / 60;
+            segundos = resto % 60;
+            printf("Equivalente en tiempo: %02d:%02d:%02d\n", horas, minutos, segundos);
+            break;
+        }
+        case 4: {
+            float examen1, examen2, examenFinal, practica1, practica2, actividadAdicional, notaFinal;
+            printf("Ingresa la calificación del primer examen: ");
+            scanf("%f", &examen1);
+            printf("Ingresa la calificación del segundo examen: ");
+            scanf("%f", &examen2);
+            printf("Ingresa la calificación del examen final: ");
+            scanf("%f", &examenFinal);
+            printf("Ingresa la calificación de la primera práctica: ");
+            scanf("%f", &practica1);
+            printf("Ingresa la calificación de la segunda práctica: ");
+            scanf("%f", &practica2);
+            printf("Ingresa la calificación de la actividad adicional: ");
+            scanf("%f", &actividadAdicional);
+            notaFinal = ((examen1 + examen2) * 0.25 + examenFinal * 0.35 + (practica1 + practica2) * 0.2 + actividadAdicional * 0.1);
+            printf("La nota final es: %.2f\n", notaFinal);
+            break;
+        }
+        case 5: {
+            float r, a, b, c, d;
+            float resultado_expresion;
+            printf("Ingrese el valor de r: ");
+            scanf("%f", &r);
+            printf("Ingrese el valor de a: ");
+            scanf("%f", &a);
+            printf("Ingrese el valor de b: ");
+            scanf("%f", &b);
+            printf("Ingrese el valor de c: ");
+            scanf("%f", &c);
+            printf("Ingrese el valor de d: ");
+            scanf("%f", &d);
+            resultado_expresion = (4.0 / (3.0 * (r + 34))) - (9 * (a + b * c)) + ((3 + d * (2 + a)) / (a + b * d));
+            printf("El resultado de la expresión es: %.2f\n", resultado_expresion);
+            resultado = resultado_expresion;
+            break;
+        }
+        case 6: {
+            int x = 12;
+            float sigma = 2.1836;
+            int y = 3;
+            float lambda = 1.11695;
+            float alfa = 328.67;
+            float f;
+            f = 3 * x * ((x + sigma * y) / (x * x - y * y)) - lambda * (alfa - 13.7);
+            printf("El valor de f es: %.2f\n", f);
+            resultado = f;
+            break;
+        }
+        case 7: {
+            float sueldo_base, complemento_destino, complemento_cargo, sueldo_bruto, impuestos, sueldo_neto;
+            int horas_extra, hijos, mayores;
+            printf("Sueldo base: ");
+            scanf("%f", &sueldo_base);
+            printf("Complemento de destino: ");
+            scanf("%f", &complemento_destino);
+            printf("Complemento de cargo académico: ");
+            scanf("%f", &complemento_cargo);
+            printf("Horas extra realizadas: ");
+            scanf("%d", &horas_extra);
+            printf("Hijos: ");
+            scanf("%d", &hijos);
+            printf("Mayores: ");
+            scanf("%d", &mayores);
+            sueldo_bruto = sueldo_base + complemento_destino + complemento_cargo + (23 * horas_extra);
+            int porcentaje_irpf = 24 - (2 * hijos) - mayores;
+            impuestos = sueldo_bruto * porcentaje_irpf / 100;
+            sueldo_neto = sueldo_bruto - impuestos;
+            printf("\nCálculo de la nómina:\n");
+            printf("Sueldo base: %.2f $\n", sueldo_base);
+            printf("Complemento de destino: %.2f $\n", complemento_destino);
+            printf("Complemento de cargo académico: %.2f $\n", complemento_cargo);
+            printf("Horas extra realizadas: %d\n", horas_extra);
+            printf("Hijos: %d\n", hijos);
+            printf("Mayores: %d\n", mayores);
+            printf("Sueldo bruto: %.2f $\n", sueldo_bruto);
+            printf("Porcentaje de IRPF: %d%%\n", porcentaje_irpf);
+            printf("Retención por IRPF: %.2f $\n", impuestos);
+            printf("Sueldo neto: %.2f $\n", sueldo_neto);
+            resultado = sueldo_neto;
+            break;
+        }
+        case 8: {
+            int a = 1;
+            double d = 1.0;
+            resultado = a + d;
+            break;
+        }
+        case 9: {
+            double lado1, lado2, angulo, area;
+            printf("Ingrese el valor del lado 1: ");
+            scanf("%lf", &lado1);
+            printf("Ingrese el valor del lado 2: ");
+            scanf("%lf", &lado2);
+            printf("Ingrese el valor del ángulo en radianes: ");
+            scanf("%lf", &angulo);
+            area = calcularAreaTriangulo(lado1, lado2, angulo);
+            printf("El área del triángulo es: %lf\n", area);
+            resultado = area;
+            break;
+        }
+        case 10: {
+            double lado1, lado2, anguloGrados, anguloRadianes, area;
+            printf("Ingrese el valor del lado 1: ");
+            scanf("%lf", &lado1);
+            printf("Ingrese el valor del lado 2: ");
+            scanf("%lf", &lado2);
+            printf("Ingrese el valor del ángulo en grados: ");
+            scanf("%lf", &anguloGrados);
+            anguloRadianes = anguloGrados * M_PI / 180.0;
+            area = calcularAreaTriangulo(lado1, lado2, anguloRadianes);
+            printf("El área del triángulo es: %lf\n", area);
+            resultado = area;
+            break;
+        }
+        case 11: {
+            double capital, interesAnual, cuotaMensual, totalPagado, amortizacion, intereses;
+            int plazo;
+            printf("Ingrese el capital prestado: ");
+            scanf("%lf", &capital);
+            printf("Ingrese el interés anual: ");
+            scanf("%lf", &interesAnual);
+            printf("Ingrese el plazo en años: ");
+            scanf("%d", &plazo);
+            cuotaMensual = calcularCuotaMensual(capital, interesAnual, plazo);
+            totalPagado = calcularTotalPagado(cuotaMensual, plazo);
+            amortizacion = calcularAmortizacion(capital);
+            intereses = calcularIntereses(cuotaMensual, capital);
+            printf("\nDetalle del préstamo hipotecario:\n");
+            printf("Cuota mensual: %.2f\n", cuotaMensual);
+            printf("Total pagado: %.2f\n", totalPagado);
+            printf("Cantidad de amortización: %.2f\n", amortizacion);
+            printf("Cantidad de intereses: %.2f\n", intereses);
+
+            resultado = cuotaMensual;
+            break;
+        }
+        default:
+            printf("Opción no válida\n");
+            return 1;
+    }
+
+    printf("El resultado es: %.2f\n", resultado);
+
+    return 0;
+}
+
+double calcularAreaTriangulo(double lado1, double lado2, double anguloRadianes) {
+    return (lado1 * lado2 * sin(anguloRadianes)) / 2.0;
+}
+
+double calcularCuotaMensual(double capital, double interesAnual, int plazo) {
+    double interesMensual = interesAnual / 12.0;
+    int totalMeses = plazo * 12;
+    double cuotaMensual = (capital * interesMensual) / (1 - pow(1 + interesMensual, -totalMeses));
+    return cuotaMensual;
+}
+
+double calcularTotalPagado(double cuotaMensual, int plazo) {
+    int totalMeses = plazo * 12;
+    double totalPagado = cuotaMensual * totalMeses;
+    return totalPagado;
+}
+
+double calcularAmortizacion(double capital) {
+    return capital;
+}
+
+double calcularIntereses(double cuotaMensual, double capital) {
+    return cuotaMensual - capital;
+}
